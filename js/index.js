@@ -1,5 +1,5 @@
 const text = document.getElementById("home-page-text");
-const words = ["Rohit", "Developer", "Designer", "Programmer"];
+const words = ["Rohit"];
 const wait = 2000;
 
 class typeWriter {
