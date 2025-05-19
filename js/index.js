@@ -45,8 +45,8 @@ document.getElementById("send_message").addEventListener("click", function () {
   const form = document.getElementById("contact_form");
 
   // Optional: Generate a unique form ID
-  const formId = generateID();
-  document.getElementById("form_id").value = formId;
+  // const formId = generateID();
+  // document.getElementById("form_id").value = formId;
 
   const data = {
     field_4339412: form.name.value,     // Replace field_XXX with your actual field ID for 'name'
