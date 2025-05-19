@@ -38,47 +38,39 @@ class typeWriter {
 }
 new typeWriter(text, words, wait);
 
-function generateID() {
-	return 'form-' + Math.random().toString(36).substr(2, 9);
-}
+const baserowURL = "https://api.baserow.io/api/database/fields/table/543538/";  // Replace with your table ID
+const baserowToken = "Token <wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj>";  // Replace with your token
 
-document.getElementById("send_message").addEventListener("click", function (event) {
-	event.preventDefault(); // Prevent default form submission
+document.getElementById("send_message").addEventListener("click", function () {
+  const form = document.getElementById("contact_form");
 
-	const scriptURL = "https://script.google.com/macros/s/AKfycbzHJVQmlcSrVbjfePIWcZvAFYa_iQoqCR1A55c_r-DKPC1OEYda64UknOD0ZwrxqQV7TQ/exec"; 
-	const form = document.getElementById("contact_form");
+  // Optional: Generate a unique form ID
+  const formId = generateID();
+  document.getElementById("form_id").value = formId;
 
-	// Generate and set unique form ID
-	const formId = generateID();
-	document.getElementById("form_id").value = formId;
+  const data = {
+    field_4339412: form.name.value,     // Replace field_XXX with your actual field ID for 'name'
+    field_4339413: form.email.value,    // Replace field_YYY with 'email'
+    field_4339414: form.phone.value,    // Replace with 'phone'
+   field_4339416: form.message.value   // Replace with 'message'
+    // No need to manually fill 'timestamp' if it's auto-generated
+  };
 
-	// Create JSON object with form data
-	const data = {
-		id: formId,
-		name: form.name.value,
-		email: form.email.value,
-		phone: form.phone.value,
-		message: form.message.value
-	};
-
-	// Send form data to Google Apps Script via POST
-	fetch(scriptURL, {
-		method: 'POST',
-		body: JSON.stringify(data),
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	})
-	.then(response => {
-		if (response.ok) {
-			alert("Your message has been sent successfully!");
-			form.reset();
-		} else {
-			alert("There was an error submitting the form. Please try again.");
-		}
-	})
-	.catch(error => {
-		console.error("Error!", error.message);
-		alert("There was an error submitting the form.");
-	});
+  fetch(baserowURL, {
+    method: "POST",
+    headers: {
+      "Authorization": baserowToken,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+    if (!response.ok) throw new Error("Failed to submit form");
+    alert("Your message has been sent successfully!");
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Error!", error.message);
+    alert("There was an error submitting the form.");
+  });
 });
