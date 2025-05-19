@@ -59,7 +59,7 @@ document.getElementById("send_message").addEventListener("click", function () {
   fetch(baserowURL, {
     method: "POST",
     headers: {
-      "Authorization": baserowToken,
+      "Authorization": Token wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj,
       "Content-Type": "application/json"
     },
     body: JSON.stringify(data)
