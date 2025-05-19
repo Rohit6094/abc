@@ -63,7 +63,13 @@ function generateID() {
     // Send form data to Google Apps Script via POST
     fetch(scriptURL, {
       method: 'POST',
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+    id: "1",
+    name: "Rohit",
+    email: "rohit@example.com",
+    phone: "1234567890",
+    message: "Hello"
+  }),
       headers: {
         'Content-Type': 'application/json'
       }
