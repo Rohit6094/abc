@@ -40,47 +40,42 @@ new typeWriter(text, words, wait);
 
 
 function generateID() {
-    return 'form-' + Math.random().toString(36).substr(2, 9);
-  }
+  return 'form-' + Math.random().toString(36).substr(2, 9);
+}
 
-  document.getElementById("send_message").addEventListener("click", function () {
-    const scriptURL = "https://script.google.com/macros/s/AKfycbxV_dXd0GpTuSbOU5opwyV7pXaqOO8jC6ScR3vWTVh87FPxUY-WxR1Ro4GEdye8Fkos/exec"; 
-    const form = document.getElementById("contact_form");
+document.getElementById("send_message").addEventListener("click", function (event) {
+  event.preventDefault(); // Prevents default form submission
 
-    // Generate and set unique form ID
-    const formId = generateID();
-    document.getElementById("form_id").value = formId;
+  const scriptURL = "https://script.google.com/macros/s/AKfycbxV_dXd0GpTuSbOU5opwyV7pXaqOO8jC6ScR3vWTVh87FPxUY-WxR1Ro4GEdye8Fkos/exec"; 
+  const form = document.getElementById("contact_form");
 
-    // Create JSON object with form data
-    const data = {
-      id: formId,
-      name: form.name.value,
-      email: form.email.value,
-      phone: form.phone.value,
-      message: form.message.value
-    };
+  // Generate and set unique form ID
+  const formId = generateID();
+  document.getElementById("form_id").value = formId;
 
-    // Send form data to Google Apps Script via POST
-    fetch(scriptURL, {
-      method: 'POST',
-      body: JSON.stringify({
-    id: "1",
-    name: "Rohit",
-    email: "rohit@example.com",
-    phone: "1234567890",
-    message: "Hello"
-  }),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
-    .then(response => {
-      alert("Your message has been sent successfully!");
-      form.reset();
-    })
-    .catch(error => {
-      console.error("Error!", error.message);
-      alert("There was an error submitting the form.");
-    });
+  // Create JSON object with form data
+  const data = {
+    id: formId,
+    name: form.name.value,
+    email: form.email.value,
+    phone: form.phone.value,
+    message: form.message.value
+  };
+
+  // Send form data to Google Apps Script via POST
+  fetch(scriptURL, {
+    method: 'POST',
+    body: JSON.stringify(data), // <--- Fixed here
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(response => {
+    alert("Your message has been sent successfully!");
+    form.reset();
+  })
+  .catch(error => {
+    console.error("Error!", error.message);
+    alert("There was an error submitting the form.");
   });
-
+});
