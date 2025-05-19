@@ -55,7 +55,7 @@ document.getElementById("send_message").addEventListener("click", function (even
 
   // Create JSON object with form data
   const data = {
-    id: formId,
+    form_id: formId,
     name: form.name.value,
     email: form.email.value,
     phone: form.phone.value,
