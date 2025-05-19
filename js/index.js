@@ -45,7 +45,7 @@ function generateID() {
 document.getElementById("send_message").addEventListener("click", function (event) {
 	event.preventDefault(); // Prevent default form submission
 
-	const scriptURL = "https://script.google.com/macros/s/AKfycbxV_dXd0GpTuSbOU5opwyV7pXaqOO8jC6ScR3vWTVh87FPxUY-WxR1Ro4GEdye8Fkos/exec"; 
+	const scriptURL = "https://script.google.com/macros/s/AKfycbzHJVQmlcSrVbjfePIWcZvAFYa_iQoqCR1A55c_r-DKPC1OEYda64UknOD0ZwrxqQV7TQ/exec"; 
 	const form = document.getElementById("contact_form");
 
 	// Generate and set unique form ID
