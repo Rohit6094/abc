@@ -38,38 +38,38 @@ class typeWriter {
 }
 new typeWriter(text, words, wait);
 
-const baserowURL = "https://api.baserow.io/api/database/fields/table/543538/"; 
-const baserowToken = "Token <wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj>";  
-document.getElementById("send_message").addEventListener("click", function () {
-  const form = document.getElementById("contact_form");
+// const baserowURL = "https://api.baserow.io/api/database/fields/table/543538/"; 
+// const baserowToken = "Token <wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj>";  
+// document.getElementById("send_message").addEventListener("click", function () {
+//   const form = document.getElementById("contact_form");
 
-  // Optional: Generate a unique form ID
-  // const formId = generateID();
-  // document.getElementById("form_id").value = formId;
+//   // Optional: Generate a unique form ID
+//   // const formId = generateID();
+//   // document.getElementById("form_id").value = formId;
 
-  const data = {
-    field_4339412: form.name.value,     
-    field_4339413: form.email.value,   
-    field_4339414: form.phone.value,    
-   field_4339416: form.message.value   
+//   const data = {
+//     field_4339412: form.name.value,     
+//     field_4339413: form.email.value,   
+//     field_4339414: form.phone.value,    
+//    field_4339416: form.message.value   
     
-  };
+//   };
 
-  fetch(baserowURL, {
-    method: "POST",
-    headers: {
-      "Authorization": TOKEN wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj,
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    if (!response.ok) throw new Error("Failed to submit form");
-    alert("Your message has been sent successfully!");
-    form.reset();
-  })
-  .catch(error => {
-    console.error("Error!", error.message);
-    alert("There was an error submitting the form.");
-  });
-});
+//   fetch(baserowURL, {
+//     method: "POST",
+//     headers: {
+//       "Authorization": TOKEN wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj,
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify(data)
+//   })
+//   .then(response => {
+//     if (!response.ok) throw new Error("Failed to submit form");
+//     alert("Your message has been sent successfully!");
+//     form.reset();
+//   })
+//   .catch(error => {
+//     console.error("Error!", error.message);
+//     alert("There was an error submitting the form.");
+//   });
+// });
