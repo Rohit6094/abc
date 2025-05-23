@@ -38,9 +38,8 @@ class typeWriter {
 }
 new typeWriter(text, words, wait);
 
-// const baserowURL = "https://api.baserow.io/api/database/fields/table/543538/";  // Replace with your table ID
-// const baserowToken = "Token <wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj>";  // Replace with your token
-
+// const baserowURL = "https://api.baserow.io/api/database/fields/table/543538/"; 
+// const baserowToken = "Token <wi5QxZE50rFkHDL42h4SVmNTbq8RZYaj>";  
 // document.getElementById("send_message").addEventListener("click", function () {
 //   const form = document.getElementById("contact_form");
 
@@ -49,11 +48,11 @@ new typeWriter(text, words, wait);
 //   // document.getElementById("form_id").value = formId;
 
 //   const data = {
-//     field_4339412: form.name.value,     // Replace field_XXX with your actual field ID for 'name'
-//     field_4339413: form.email.value,    // Replace field_YYY with 'email'
-//     field_4339414: form.phone.value,    // Replace with 'phone'
-//    field_4339416: form.message.value   // Replace with 'message'
-//     // No need to manually fill 'timestamp' if it's auto-generated
+//     field_4339412: form.name.value,     
+//     field_4339413: form.email.value,   
+//     field_4339414: form.phone.value,    
+//    field_4339416: form.message.value   
+//     
 //   };
 
 //   fetch(baserowURL, {
